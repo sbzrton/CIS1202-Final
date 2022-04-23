@@ -347,8 +347,6 @@ void displayItems(int category ) {
 
 		while (pcs) {
 
-
-
 			itemNums[items] = itemNum++;
 			nameItems[items] = n.prePcName;
 			priceItems[items] = Prepcs[0].getPrice();
@@ -402,6 +400,7 @@ void sellMenu() {
 		cin.ignore(100, '\n');
 	}
 
+
 	switch (usrSell) {
 	case 1:
 		category = "Keyboard";
@@ -430,6 +429,7 @@ void sellMenu() {
 	}
 }
 
+//Function used for allowing user to sell an item and printing out a random price the company is willing to pay
 void sellItems(string itemCat) {
 
 	string userInput; 
@@ -608,7 +608,7 @@ void viewCart() {
 	cout << dye::red("\n\n Your items: ") << "\n\n";
 
 
-	
+	//Printing items from inventory IF the user has added them to their cart
 	int size = sizeof(finalNames) / sizeof(finalNames[0]);
 	for (int i = 0; i < size; i++) {
 		if (finalNames[i] != "" && priceItems[i] != 0) {
@@ -616,6 +616,7 @@ void viewCart() {
 		}
 	}
 
+	//Adjusting net price dependig on if the user wants to remove items from cart
 	double netPrice = 0; 
 	double removedPrice = 0;
 	int rmItems = 0;
@@ -646,6 +647,8 @@ void viewCart() {
 		finalNames[rmItems] = "";
 		check.setCheckout(netPrice, removedPrice);
 		
+
+		//Sending user either to the menu or letting them view their cart again
 		if (check.getCheckout() == 0) {
 			system("CLS");
 			cout << dye::red("\n\n Cart is empty. Returning back to menu.... \n\n");

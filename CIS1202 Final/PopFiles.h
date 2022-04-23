@@ -9,11 +9,12 @@
 //Prototype
 void pop();
 
-//constant
+//constants
 const int NAME_SIZE = 50;
 const int NUM_ITEMS = 5;
+const int TOTAL_INV = 17;
 
-//Structure 
+//Structure used for reading and writing names to and from binary files
 struct GetName {
 	char keyboardName[NAME_SIZE];
 	char miceName[NAME_SIZE];
@@ -46,7 +47,7 @@ fstream pcName;
 
 
 //Used for getting and returnning information regarding the cart/checkout process of the shop
-const int TOTAL_INV = 17;
+
 int items = 0; //used to iterate through items arrays
 
 int itemNums[TOTAL_INV]; //used to display item #'s in cart;
@@ -56,7 +57,7 @@ string nameItems[TOTAL_INV];
 string finalNames[TOTAL_INV];
 Inventory check; //used to call checkout functions in BaseShop.h
 
-double ogOwed = 0;
+double ogOwed = 0; //used to make the user play their balance
 double fixedRemainder = 0;
 
 

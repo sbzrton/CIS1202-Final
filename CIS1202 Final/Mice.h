@@ -6,8 +6,6 @@ private:
 	MouseType Mtype;
 public:
 // Setter
-
-	
 	void setMouse(int m) {
 		Mtype = static_cast<MouseType>(m);
 	}
