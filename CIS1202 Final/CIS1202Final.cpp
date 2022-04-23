@@ -15,14 +15,15 @@
 //Function Prototypes 
 
 int menuChoice(int&);
-void buyItems();
+void buyItems();   
 void displayItems(int);
 
 void sellMenu();
 void sellItems(string); //(inspired by gamestop
 
+
 void viewCart();
-void checkOut(Inventory);
+void checkOut(Inventory); //Used to check the user out
 
 
 
@@ -172,7 +173,7 @@ void displayItems(int category ) {
 			
 			while (keyboards) {
 
-				itemNums[items] = itemNum++;
+				itemNums[items] = itemNum;
 				nameItems[items] = n.keyboardName;
 				priceItems[items] = keys[0].getPrice();
 				items++;
@@ -231,7 +232,7 @@ void displayItems(int category ) {
 			while (mice) {
 
 
-				itemNums[items] = itemNum++;
+				itemNums[items] = itemNum;
 				nameItems[items] = n.miceName;
 				priceItems[items] = mouse[0].getPrice();
 				items++;
@@ -292,7 +293,7 @@ void displayItems(int category ) {
 
 
 
-				itemNums[items] = itemNum++;
+				itemNums[items] = itemNum;
 				nameItems[items] = n.monitorName;
 				priceItems[items] = screens[0].getPrice();
 				items++;
@@ -347,7 +348,7 @@ void displayItems(int category ) {
 
 		while (pcs) {
 
-			itemNums[items] = itemNum++;
+			itemNums[items] = itemNum;
 			nameItems[items] = n.prePcName;
 			priceItems[items] = Prepcs[0].getPrice();
 			items++;
@@ -698,7 +699,7 @@ void viewCart() {
 }
 
 
-//Function used for checking out the user and making sure full balance is paid
+//Function used for checking out the user and charging their account
 //Tax on items is a default .60
 
 void checkOut(Inventory c) {
@@ -707,27 +708,17 @@ void checkOut(Inventory c) {
 	cout << setw(60) << dye::purple("CHECK-OUT") << "\n";
 	cout << fixed << setprecision(2) << dye::blue("\n\n Subtotal: ") << dye::light_aqua("$") << dye::light_aqua(c.getCheckout());
 	cout << fixed << setprecision(2) << dye::purple("\n Tax (6%): ") << dye::light_purple("$") << dye::light_purple(getTax(c.getCheckout())) << endl;
-	cout << fixed << setprecision(2) << dye::red("\n Your total is: ") << dye::light_red("$") << dye::light_red(finalPrice(c.getCheckout()));
+	cout << fixed << setprecision(2) << dye::red("\n A total of: ") << dye::light_red("$") << dye::light_red(finalPrice(c.getCheckout()))
+		<< dye::red(" Has been charged to your account! ");
 
 
-
-	// attempted to use with templated functions to make sure the user pays their balance
-//however no matter how many different attempts tried, the while loop would not break when condition was 0
+	cout << "\n\n THANK YOU FOR SHOPPING WITH US!!!!!!";
 	
-	fixedRemainder = finalPrice(c.getCheckout());
-	cout << "\n";
-	while (ogOwed != fixedRemainder) {
-
-		cout << dye::red("\nYou owe: $") << dye::light_aqua(fixedRemainder);
-		cout << "\n Enter in what you owe (IN EXACT CHANGE): "; cin >> ogOwed;
-	}
+	Sleep(3000);
+	system("CLS");
+	main();
 	
 	
-	if (ogOwed == fixedRemainder) {
-		
-		system("CLS");
-		cout << dye::purple("\n\n THANK YOU FOR SHOPPING WITH US!! FEEL FREE TO SHOP AGAIN, ANYTIME :)") << "\n";
-	}
-
+	
 }
 

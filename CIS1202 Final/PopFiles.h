@@ -57,8 +57,7 @@ string nameItems[TOTAL_INV];
 string finalNames[TOTAL_INV];
 Inventory check; //used to call checkout functions in BaseShop.h
 
-double ogOwed = 0; //used to make the user play their balance
-double fixedRemainder = 0;
+
 
 
 
