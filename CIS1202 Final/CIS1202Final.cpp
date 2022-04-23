@@ -367,7 +367,7 @@ void displayItems(int category ) {
 	}
 
 	cout << dye::blue("\n\n\n Enter in the number of the item you would like to purchase: ");
-	while (!(cin >> userItemNum) || userItemNum < 16 || userItemNum > 17 || cin.fail()) {
+	while (!(cin >> userItemNum) || userItemNum < 15 || userItemNum > 17 || cin.fail()) {
 		cout << "\nInvalid item number. Please refer to the purple text and try again: ";
 		cin.clear();
 		cin.ignore(100, '\n');
